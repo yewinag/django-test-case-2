@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Test Case App</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="{% static 'user/bs/css/flatly.min.css' %}" />
+		<link rel="stylesheet" href="{% static 'user/styles.css' %}" />
+	</head>
+	<body>
+
+		<div class="container-fluid" id="wrapper">
+			<div class="container article"  id="content">
+				<div class="row">
+					<div class="col-md-12">
+						<h2>Users</h2>
+						<div class="col-md-6">
+							<form action="{% url 'add' %}" method="POST" role="form">
+								{% csrf_token %}
+									<div class="form-group">
+										{{ form.name }}
+										{{ form.email }}
+									</div>
+									<div class="form-group ">
+											<button type="submit" class="btn btn-primary ">Add</button>
+									</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<p>go back to home page</p>
+						<a class="btn btn-primary" href="/" role="button">home page</a>
+					</div>
+					<div class="col-md-6">
+						<p>user lists</p>
+						<a class="btn btn-primary" href="/lists" role="button">user lists</a>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<div class="row pad">
+					<div class="col-lg-12 text-center">
+						<strong>User Lists</strong>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,4 +1,5 @@
-# Django Test Case
+# Django - test app
+
 
 python 3.7
 
